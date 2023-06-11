@@ -1,7 +1,13 @@
 <?php
-    $isLogged = $_SESSION['isLogged'];
 
-    if($isLogged)
+    session_start();
+
+    $isLogged = $_SESSION['isLogged'];
+    $role = $_SESSION['role'];
+    
+    // role 1 == alumno
+    // role 2 == admin
+    if($isLogged && $_SESSION['role'] == 1)
     {
 
 
