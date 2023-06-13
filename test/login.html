@@ -1,64 +1,3 @@
-<?php
-
-    session_start();
-
-    $isLogged = $_SESSION['isLogged'];
-    $role = $_SESSION['role'];
-    
-    // role 1 == alumno
-    // role 2 == admin
-    if($isLogged && $_SESSION['role'] == 1)
-    {
-
-
-            //Aqui pon lo que deberia aparecer si esta logeado.
-
-?>
-        
-<?php
-    }
-    else if($isLogged && $_SESSION['role'] == 2){
-?>
-
-<!DOCTYPE html>
-    <head>
-        <title>
-            UAQ-FIF | Admin panel
-        </title>
-        <link rel="stylesheet" href="./assets/css/main.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    </head>
-    <body class="fluid-container">
-        <div class="container">
-            <nav class="navbar">
-                <div>
-                    <i class="fa-solid fa-house"></i>
-                </div>
-                <div>
-                    <i class="fa-solid fa-user"></i>
-                </div>
-                <div>
-                    <i class="fa-solid fa-gear"></i>
-                </div>
-                <div>
-                    <i></i>
-                </div>
-            </nav>
-            <div class="container">
-                asdasd
-            </div>
-        </div>
-    </body>
-</html>
-
-<?php
-    }
-
-    else{
-
-        // Login 
-?>
 <!DOCTYPE html>
     <head>
         <title>
@@ -102,7 +41,3 @@
         </div>
     </body>
 </html>
-<?php
-    }
-?>
-
