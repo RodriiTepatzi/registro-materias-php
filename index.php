@@ -1,9 +1,27 @@
 <?php
 
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Config/ExceptionsManager.php';
+
     session_start();
 
-    $isLogged = $_SESSION['isLogged'];
-    $role = $_SESSION['role'];
+    $role = null;
+    $isLogged = null;
+    $error = null;
+
+    
+    if(isset($_SESSION['isLogged'])){
+        $isLogged = $_SESSION['isLogged'];
+    }
+    
+    if(isset($_SESSION['role'])){
+        $role = $_SESSION['role'];
+    }
+    
+    if(isset($_GET['error'])){
+         $error = $_GET['error'];
+    }
     
     // role 1 == alumno
     // role 2 == admin
@@ -70,7 +88,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css" 
         integrity="sha512-yDUXOUWwbHH4ggxueDnC5vJv4tmfySpVdIcN1LksGZi8W8EVZv4uKGrQc0pVf66zS7LDhFJM7Zdeow1sw1/8Jw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
-    <body class="container-fluid vertical-align h-100 background">
+    <body class="container-fluid vertical-align h-80 background">
         <div class="container center">
             <img class="center logo-login" src="./assets/svg/Portal-UAQ.svg">
             <div class="container center border-shadow padding-2">
@@ -83,6 +101,12 @@
                 <div class="subtitle primary-trasnlucent center">
                     Usa tu expediente y tu NIP
                 </div>
+                <?php 
+                    if($error !== null){
+                        echo 'j'. validateException($error);
+                    }
+
+                ?>
                 <form class="form" action="login.php" method="POST">
                     <div class="field-w-icon">
                         <i class="fa-solid fa-user"></i>

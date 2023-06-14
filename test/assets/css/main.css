@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('./dropdown.css');
 
 *{
     padding: 0;
@@ -10,10 +11,15 @@ html{
     height: 100%;
 }
 
+a{
+    text-decoration: none;
+}
+
 :root{
     --background: #FAFAFA;
     --navbar-background-color: #F8F8F8;
     --active-color: #1B528A;
+    --inactive-color: rgba(27, 86, 147, 0.35);;
     --primary-color: #1B5693;
     --white-color: #fff;
     --primary-color-trasnlucent: rgba(27, 86, 147, 0.5);
@@ -24,27 +30,31 @@ html{
     display: flex;
     flex-direction: column;
     position: absolute;
-    background-color: var(--navbar-background-color);
     width: fit-content;
-    height: 90vh;
-    border-bottom-right-radius: 15px;
+    height: 100%;
+    align-items: center;
 }
 
 .active > i{
     color: var(--active-color);
 }
 
-i{
-    width: fit-content;
-    padding: 20px;
+.nav-icon{
+    font-size: 1.5rem;
+    color: var(--inactive-color);
 }
 
-.nav-icon{
-    font-size: 1.3rem;
+.nav-item{
+    margin: 20px;
 }
 
 .container-fluid{
     display: flex;
+}
+
+.flex-center{
+    align-items: center;
+    justify-content: center;
 }
 
 .col{
@@ -128,6 +138,13 @@ i{
     border-radius: 15px;
 }
 
+.content{
+    display: block;
+    position: relative;
+    left: 100px;
+    margin-top: 1rem;
+}
+
 .caps{
     text-transform: uppercase;
 }
@@ -154,7 +171,7 @@ i{
 img.center.logo-login{
     display: block;
     margin: auto;
-    margin-top: -20rem;
+    margin-top: calc(100% - 20rem);
     margin-bottom: 2rem;
 }
 
@@ -184,7 +201,39 @@ img.center.logo-login{
     caret-color: var(--primary-color);
 }
 
+.icon-nav {
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.spacer{
+    flex-grow: 1;
+}
+
 a{
     color: inherit;
     text-decoration: none;
+}
+
+.profile-picture{
+    width: 40px;
+    border-radius: 40px;
+    margin: 20px;
+}
+
+.menu{
+    border-bottom-right-radius: 15px;
+    height: calc(100% - 100px);
+}
+
+.profile-picture-container{
+    width: 100%;
+    background-color: var(--navbar-background-color);
+    border-top-right-radius: 15px;
+}
+
+.gray{
+    background-color: var(--navbar-background-color);
 }

@@ -1,6 +1,7 @@
 <?php
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/Config/ConnectionManager.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/enums/Exceptions.php';
 
 function login($expediente, $nip) {
     $conn = db_connect();
@@ -27,7 +28,7 @@ function login($expediente, $nip) {
     } 
     else{
         $_SESSION['isLogged'] = false;
-        echo "Invalid expediente or NIP";
+        header('Location: index.php?error='.getExceptionName(Exceptions::WrongCredentials));
     }
 
     $conn -> close();
